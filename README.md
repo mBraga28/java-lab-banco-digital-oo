@@ -1,18 +1,82 @@
-# Criando um Banco Digital com Java e Orientação a Objetos
+# Desafio de Projeto: Criando um Banco Digital com Java e Orientação a Objetos
 
-## 02/08/2021 - [Mentoria #1: Tire Suas Dúvidas Sobre Orientação a Objetos](https://www.youtube.com/watch?v=YS6ouOhkyNI)
+Este projeto é uma aplicação bancária simples em Java, utilizando conceitos de Orientação a Objetos. O projeto inclui operações básicas de contas bancárias, como criação de contas, depósitos, saques e transferências.
 
-Desafio: Considerando nosso conhecimento no domínio bancário, iremos abstrair uma solução Orientada a Objetos em Java. Para isso, vamos interpretar o seguinte cenário:
-“Um banco oferece aos seus clientes dois tipos de contas (corrente e poupança), as quais possuem as funcionalidades de depósito, saque e transferência (entre contas da própria instituição).”
 
-### Abstração
-Habilidade de concentrar-se nos aspectos essenciais de um domínio, ignorando características menos importantes ou acidentais. Nesse contexto, objetos são abstrações de entidades existentes no domínio em questão.
+## Pré-requisitos
 
-### Encapsulamento
-Encapsular significa esconder a implementação dos objetos, criando assim interfaces de uso mais concisas e fáceis de usar/entender. O encapsulamento favorece principalmente dois aspectos de um sistema: a manutenção e a evolução.
+- [Java Development Kit (JDK) 8+](https://www.oracle.com/java/technologies/javase-downloads.html)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+- [Eclipse IDE](https://www.eclipse.org/downloads/)
+- [Lombok](https://projectlombok.org/download)
 
-### Herança
-Permite que você defina uma classe filha que reutiliza (herda), estende ou modifica o comportamento de uma classe pai. A classe cujos membros são herdados é chamada de classe base. A classe que herda os membros da classe base é chamada de classe derivada.
+## Configuração do Ambiente
 
-### Polimorfismo
-Capacidade de um objeto poder ser referenciado de várias formas, ou seja, é capacidade de tratar objetos criados a partir das classes específicas como objetos de uma classe genérica. Cuidado, polimorfismo não quer dizer que o objeto fica se transformando, muito pelo contrário, um objeto nasce de um tipo e morre daquele tipo, o que pode mudar é a maneira como nos referimos a ele.
+### Passo 1: Baixar e Configurar o Lombok
+
+1. Baixe o arquivo JAR do Lombok a partir do [site oficial do Lombok](https://projectlombok.org/download).
+2. Coloque o arquivo `lombok.jar` no diretório `lib` do projeto.
+
+### Configurar o Lombok no Visual Studio Code
+
+1. Crie um arquivo `settings.json` na pasta `.vscode` do seu projeto (crie a pasta `.vscode` se não existir).
+2. Adicione a configuração do classpath no `settings.json`:
+
+```json
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
+```
+3. Instale a extensão "Lombok Annotations Support for VS Code":
+
+ - Vá para a aba de Extensões (ícone de quadrado no lado esquerdo).
+ - Pesquise por "Lombok" e instale a extensão.
+
+4. Abra um terminal no Visual Studio Code, navegue até a pasta raiz do projeto, compile e execute:
+```shell
+javac -cp "lib/*;src" -d bin src/com/seu_nome_projeto/Main.java
+java -cp "lib/*;bin" com.seu_nome_projeto.Main
+```
+### Configurar o Lombok no IntelliJ IDEA
+1. Vá para File > Settings > Plugins e pesquise por "Lombok". Instale o plugin e reinicie o IntelliJ.
+2. Vá para File > Project Structure > Libraries e adicione o lombok.jar.
+3. Vá para File > Settings > Build, Execution, Deployment > Compiler > Annotation Processors e marque a opção "Enable annotation processing".
+
+### Configurar o Lombok no Eclipse
+1. Vá para Help > Eclipse Marketplace, pesquise por "Lombok" e instale o plugin.
+2. Após a instalação, reinicie o Eclipse.
+3. Vá para Window > Preferences > Java > Compiler > Annotation Processing > Factory Path e adicione o lombok.jar.
+
+### Compilar e Executar o Projeto
+
+#### No Visual Studio Code
+1. Abra um terminal no Visual Studio Code.
+2. Navegue até a pasta raiz do projeto.
+3. Compile o projeto com o comando:
+```shell
+javac -cp "lib/*;src" -d bin src/com/seu_nome_projeto/Main.java
+```
+4. Execute o projeto com o comando:
+
+```shell
+java -cp "lib/*;bin" com.seu_nome_projeto.Main
+
+```
+
+#### No IntelliJ IDEA
+1. Clique com o botão direito do mouse na classe Main e selecione Run 'Main.main()'.
+
+#### No Eclipse
+1. Clique com o botão direito do mouse na classe Main e selecione Run As > Java Application.
+
+### Uso
+- Criar Conta: A classe Main cria instâncias de ContaCorrente e ContaPoupanca para um cliente.
+- Depósito: Através do método depositar da classe Conta.
+- Saque: Através do método sacar da classe Conta.
+- Transferência: Através do método transferir da classe Conta.
+
+## Contribuições
+Sinta-se à vontade para abrir issues e pull requests para melhorias.
